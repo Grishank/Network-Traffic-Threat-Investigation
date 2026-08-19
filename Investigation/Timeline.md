@@ -61,7 +61,7 @@ The presence of an interactive command-shell session within the analyzed TCP com
 
 The capture initially showed several DNS queries and responses.
 
-This established normal DNS-related communication within the capture before the investigation shifted toward the suspicious TCP session.
+This established DNS-related communication within the capture before the investigation shifted toward the suspicious TCP session.
 
 ### 2. TCP Communication Over Port 53
 
@@ -79,3 +79,52 @@ Following the TCP stream revealed readable command-line information, including t
 
 ```text
 dir
+```
+
+The command produced directory listing information from the remote Windows system.
+
+### 4. Command Shell Termination
+
+The reconstructed stream also showed:
+
+```text
+exit
+```
+
+indicating termination of the observed command-shell session.
+
+---
+
+## Investigation Flow
+
+```text
+DNS Traffic Observed
+        ↓
+TCP Port 53 Identified
+        ↓
+TCP Session Established
+        ↓
+TCP Payload Observed
+        ↓
+Follow TCP Stream
+        ↓
+Windows Command Shell Identified
+        ↓
+"dir" Command Observed
+        ↓
+Directory Listing Identified
+        ↓
+"exit" Command Observed
+        ↓
+Suspicious Remote Shell Activity
+```
+
+---
+
+## Investigation Conclusion
+
+The timeline demonstrates how the investigation progressed from general network traffic analysis to identification of a suspicious TCP session and finally to application-level command analysis.
+
+The most significant finding was the presence of readable Windows command-shell activity within the TCP stream associated with port `53`.
+
+This behavior would warrant further investigation in a real SOC environment, including analysis of the communicating hosts, related network traffic, endpoint telemetry, and the origin of the connection.
