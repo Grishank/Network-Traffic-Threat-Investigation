@@ -75,7 +75,7 @@ The capture initially contained multiple DNS queries and responses.
 
 Wireshark was used to filter DNS traffic and identify the communicating hosts and observed DNS activity.
 
-![DNS Traffic Analysis](Screenshots/01-dns-analysis.png)
+![DNS Traffic Analysis](Screenshots/01-dns-traffic.png)
 
 ### Key observations
 
@@ -94,7 +94,7 @@ Further investigation identified TCP communication involving port `53`.
 
 A Wireshark display filter was used to isolate the relevant traffic.
 
-![TCP Port 53 Analysis](Screenshots/02-tcp-port-53-analysis.png)
+![TCP Port 53 Analysis](Screenshots/02-suspicious-tcp-port-53.png)
 
 ### Key observations
 
