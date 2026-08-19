@@ -118,7 +118,7 @@ The suspicious TCP session was examined using:
 
 This reconstructed the application-layer conversation between the communicating hosts.
 
-![TCP Stream Analysis](Screenshots/03-tcp-stream-analysis.png)
+![TCP Stream Analysis](Screenshots/03-tcp-stream-remote-shell.png)
 
 The reconstructed stream contained readable Windows command-shell information.
 
